@@ -1,26 +1,38 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
+import Button from "@mui/material/Button";
 import "../Navbar.css";
 const Navbar = () => {
   return (
-    <ul>
-      <li>
-        <NavLink
-          className={({ isActive }) => (isActive ? "active" : "")}
-          to="/"
-        >
-          Home
-        </NavLink>
-      </li>
-      <li>
-        <NavLink
-          className={({ isActive }) => (isActive ? "active" : "")}
-          to="/categories"
-        >
-          Categories
-        </NavLink>
-      </li>
-    </ul>
+    <nav className="navbar">
+      <ul>
+        <li>
+          <NavLink to="/">
+            {({ isActive }) => (
+              <Button
+                className="nav-button"
+                variant={isActive ? "contained" : "text"}
+              >
+                Home
+              </Button>
+            )}
+          </NavLink>
+        </li>
+
+        <li>
+          <NavLink to="/categories">
+            {({ isActive }) => (
+              <Button
+                className="nav-button"
+                variant={isActive ? "contained" : "text"}
+              >
+                Categories
+              </Button>
+            )}
+          </NavLink>
+        </li>
+      </ul>
+    </nav>
   );
 };
 
