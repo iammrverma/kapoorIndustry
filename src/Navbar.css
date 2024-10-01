@@ -69,8 +69,11 @@
   flex-direction: column;
   width: 100%;
   flex-grow: 1;
+  gap: .5rem;
 }
-
+.drawer-list > .ul-button{
+  border-radius: .25rem;
+}
 ul {
   list-style-type: none;
   padding: 0;
