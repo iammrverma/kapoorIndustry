@@ -7,7 +7,7 @@ import useMediaQuery from "@mui/material/useMediaQuery";
 import Brand from "./Brand";
 import NavLinks from "./NavLinks";
 import MobileDrawer from "./MobileDrawer";
-import "../Navbar.css";
+import "../../Navbar.css";
 
 const Navbar = () => {
   const [drawerOpen, setDrawerOpen] = useState(false);

@@ -1,6 +1,6 @@
 import React from "react";
 import Typography from "@mui/material/Typography";
-import Logo from "../assets/logo.png";
+import Logo from "../../assets/logo.png";
 
 const Brand = () => {
   return (
