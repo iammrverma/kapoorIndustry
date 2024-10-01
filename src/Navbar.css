@@ -1,16 +1,87 @@
-.navbar{
+.navbar-toolbar {
   display: flex;
-  gap: 2rem;
   justify-content: space-between;
   align-items: center;
-  padding: .5rem;
 }
-ul {
-  list-style: none;
+
+/* Brand Section */
+.navbar-brand {
   display: flex;
-  gap: 1rem;
-  justify-content: center;
+  align-items: center;
 }
-.nav-button{
-  padding-inline: 1rem !important;
+
+.navbar-logo {
+  height: 40px;
+  width: 40px;
+  margin-right: 10px;
 }
+
+.navbar-brand-name {
+  font-weight: bold;
+  color: black;
+}
+
+/* Centered Menu Links for Larger Screens */
+.navbar-menu {
+  display: flex;
+  gap: 30px;
+}
+.ul-button{
+  padding: .375rem 1rem !important;
+  color: var(--primary) !important;
+}
+.ul-button:hover{
+  color: var(--primary) !important;
+}
+.ul-button.active{
+  background-color: var(--secondary-bg-color) !important;
+  color: var(--secondary) !important;
+}
+
+
+/* Drawer Header */
+.drawer-content {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 20px;
+  height: 100%;
+}
+
+.drawer-header {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.drawer-logo {
+  height: 40px;
+  width: 40px;
+  margin-right: 10px;
+}
+
+.drawer-brand-name {
+  font-weight: bold;
+}
+
+.drawer-list {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  flex-grow: 1;
+}
+
+ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+li {
+  display: inline-block;
+}
+
+a{
+  text-decoration: none;
+  color: inherit;
+}
+

@@ -9,3 +9,20 @@ p,li,figcaption{
   max-width: 65ch;
   text-wrap: pretty;
 }
+:root {
+  --primary-bg-color: #A5DE44; 
+  --secondary-bg-color: #4EA52F;
+  --primary: #368f2a;
+  --secondary: #ffffff;
+
+  --base-1: #EEEEEE;
+  --base-2: #dddddd;
+  --base-3: #cccccc;
+  --base-4: #aaaaaa;
+  --base-5: #bbbbbb;
+
+  --navbar-bg-color: red;
+  --navlink-hover-color: darkgray;
+  --navlink-active-color: black;
+  --line-color: lightgray;
+}
