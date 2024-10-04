@@ -1,21 +1,28 @@
-*{
+* {
   margin: 0;
   padding: 0;
 }
-h1,h2,h3,h4,h5,h6{
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
   text-wrap: balance;
 }
-p,li,figcaption{
+p,
+li,
+figcaption {
   max-width: 65ch;
   text-wrap: pretty;
 }
 :root {
-  --primary-bg-color: #A5DE44; 
-  --secondary-bg-color: #4EA52F;
+  --primary-bg-color: #a5de44;
+  --secondary-bg-color: #4ea52f;
   --primary: #368f2a;
   --secondary: #ffffff;
 
-  --base-1: #EEEEEE;
+  --base-1: #eeeeee;
   --base-2: #dddddd;
   --base-3: #cccccc;
   --base-4: #aaaaaa;
@@ -25,4 +32,34 @@ p,li,figcaption{
   --navlink-hover-color: darkgray;
   --navlink-active-color: black;
   --line-color: lightgray;
+}
+
+
+
+.whyus {
+  display: flex;
+  flex-direction: column;
+  gap: 5rem;
+  padding: 5rem 0;
+  align-items: center;
+}
+
+.whyus-card {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+@keyframes slideUp {
+  from {
+    transform: translateY(100px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
 }
