@@ -3,7 +3,6 @@ import Drawer from "@mui/material/Drawer";
 import List from "@mui/material/List";
 import ListItem from "@mui/material/ListItem";
 import ListItemText from "@mui/material/ListItemText";
-import Typography from "@mui/material/Typography";
 import Brand from "./Brand";
 import { NavLink } from "react-router-dom";
 
@@ -14,8 +13,19 @@ const MobileDrawer = ({ drawerOpen, toggleDrawer }) => {
   ];
 
   return (
-    <Drawer anchor="right" open={drawerOpen} onClose={toggleDrawer(false)}>
-      <div className="drawer-content">
+    <Drawer
+      anchor="right"
+      open={drawerOpen}
+      onClose={toggleDrawer(false)}
+      sx={{
+        "& .MuiDrawer-paper": {
+          backgroundColor: "transparent", //imp to make the paper color transparein order to make it morph
+          backdropFilter: "blur(10px)",
+        },
+      }}
+    >
+      {/* Drawer content container */}
+      <div className="drawer-content morph">
         {/* Display brand image and name aligned left */}
         <div className="drawer-header">
           <Brand />
@@ -25,7 +35,8 @@ const MobileDrawer = ({ drawerOpen, toggleDrawer }) => {
         <List className="drawer-list">
           {links.map((link) => (
             <ListItem
-              button className="ul-button"
+              button
+              className="ul-button"
               key={link.name}
               component={NavLink}
               to={link.path}

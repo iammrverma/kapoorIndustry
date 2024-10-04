@@ -19,11 +19,7 @@ const Navbar = () => {
     <AppBar
       position="absolute"
       top={0}
-      style={{
-        backdropFilter: "blur(10px)",
-        backgroundColor: "rgba(255, 255, 255, 0.1)",
-        WebkitBackdropFilter: "blur(10px)",
-      }}
+      className="morph"
     >
       <Toolbar className="navbar-toolbar">
         {/* Left Section: Brand */}
