@@ -16,13 +16,23 @@ const Navbar = () => {
   const toggleDrawer = (open) => () => setDrawerOpen(open);
 
   return (
-    <AppBar position="static" style={{ backgroundColor: "transparent" }}>
+    <AppBar
+      position="absolute"
+      top={0}
+      style={{
+        backdropFilter: "blur(10px)",
+        backgroundColor: "rgba(255, 255, 255, 0.1)",
+        WebkitBackdropFilter: "blur(10px)",
+      }}
+    >
       <Toolbar className="navbar-toolbar">
         {/* Left Section: Brand */}
         <Brand />
 
         {/* Center Section: Navigation Links (Visible only on large screens) */}
-        {isLargeScreen && <NavLinks isLargeScreen={true} toggleDrawer={toggleDrawer} />}
+        {isLargeScreen && (
+          <NavLinks isLargeScreen={true} toggleDrawer={toggleDrawer} />
+        )}
 
         {/* Right Section: Drawer Menu Icon for Mobile Screens */}
         {!isLargeScreen && (
