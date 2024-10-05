@@ -51,6 +51,7 @@ figcaption {
   justify-content: center;
   align-items: center;
   text-align: center;
+  opacity: 0;
 }
 
 @keyframes slideUp {

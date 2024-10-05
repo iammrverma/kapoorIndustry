@@ -15,6 +15,7 @@ import DoneIcon from "@mui/icons-material/Done";
 import CurrencyRupeeIcon from "@mui/icons-material/CurrencyRupee";
 import SettingsSuggestIcon from "@mui/icons-material/SettingsSuggest";
 import { useInView } from "react-intersection-observer";
+import ProductCard from "./ProductCard";
 const Hero = () => {
   const navigate = useNavigate();
   const isLargeScreen = useMediaQuery("(min-width:768px)");
@@ -173,6 +174,7 @@ const Home = () => {
     <>
       <Hero />
       <WhyUs />
+      <ProductCard name={"Rubber Duck"} mop={25} tags={["High quality","High quality", "Environment friendly", "Child Safe"]}/>
     </>
   );
 };
