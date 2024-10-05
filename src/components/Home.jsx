@@ -16,6 +16,7 @@ import CurrencyRupeeIcon from "@mui/icons-material/CurrencyRupee";
 import SettingsSuggestIcon from "@mui/icons-material/SettingsSuggest";
 import { useInView } from "react-intersection-observer";
 import ProductCard from "./ProductCard";
+import PrimaryBtn from "./PrimaryBtn";
 const Hero = () => {
   const navigate = useNavigate();
   const isLargeScreen = useMediaQuery("(min-width:768px)");
@@ -57,18 +58,11 @@ const Hero = () => {
             >
               Your Profit
             </Typography>
-            <Button
-              onClick={() => navigate("/categories")}
-              variant="contained"
-              size="large"
-              sx={{
-                mt: 3,
-                backgroundColor: "var(--secondary-bg-color)",
-                color: "var(--secondary)",
-              }}
-            >
-              View Products
-            </Button>
+            <PrimaryBtn
+              title={"View Products"}
+              size={"large"}
+              callBack={() => navigate("/categories")}
+            />
           </Grid2>
         </Grid2>
       </Container>
@@ -174,7 +168,16 @@ const Home = () => {
     <>
       <Hero />
       <WhyUs />
-      <ProductCard name={"Rubber Duck"} mop={25} tags={["High quality","High quality", "Environment friendly", "Child Safe"]}/>
+      <ProductCard
+        name={"Rubber Duck"}
+        mop={25}
+        tags={[
+          "High quality",
+          "High quality",
+          "Environment friendly",
+          "Child Safe",
+        ]}
+      />
     </>
   );
 };

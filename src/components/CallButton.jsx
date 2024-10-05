@@ -24,7 +24,7 @@ const CallButton = ({ title, variant, style }) => {
     <Button
       onClick={makeCall}
       variant="contained"
-      size="small"
+      size="medium"
       endIcon={<PhoneIcon />}
       sx={{
         ...commonStyles,

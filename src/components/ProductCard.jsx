@@ -2,6 +2,8 @@ import React, { useMemo, useState } from "react";
 import CallButton from "./CallButton";
 import HeroImage from "../assets/hero.jpg";
 import { Box, Typography } from "@mui/material";
+import PrimaryBtn from "./PrimaryBtn";
+import { useNavigate } from "react-router-dom";
 
 const isColorDark = (color) => {
   // Convert hex color to RGB
@@ -27,25 +29,9 @@ const isColorDark = (color) => {
   return brightness < 128;
 };
 
-const Tag = ({ title }) => {
-  return (
-    <Box
-      sx={{
-        padding: ".35rem .65rem",
-        background: "var(--base-2)",
-        maxWidth: "fit-content",
-        borderRadius: ".5rem",
-        whiteSpace: "nowrap",
-      }}
-    >
-      {title ? title : "Tag"}
-    </Box>
-  );
-};
-
 const ProductCard = ({ name, mop, tags, prominentColor }) => {
   const [isHovered, setIsHovered] = useState(false);
-
+  const navigate = useNavigate();
   const handleMouseEnter = () => setIsHovered(true);
   const handleMouseLeave = () => setIsHovered(false);
 
@@ -172,21 +158,16 @@ const ProductCard = ({ name, mop, tags, prominentColor }) => {
       <div
         style={{
           display: isHovered ? "flex" : "none",
-          overflowY: "scroll",
-          gap: "1rem",
-          flex: "1",
           alignItems: "center",
-          padding: "0 .5rem",
-
-          // removing the scrolbar
-          WebkitOverflowScrolling: "touch",
-          scrollbarWidth: "none",
-          msOverflowStyle: "none",
+          justifyContent: "center",
+          flex: "1",
         }}
       >
-        {tags.map((tag, index) => (
-          <Tag title={tag} key={index} />
-        ))}
+        <PrimaryBtn
+          title={"View Product"}
+          size={"medium"}
+          callBack={()=>navigate("/categories/45678")}
+        />
       </div>
     </div>
   );
