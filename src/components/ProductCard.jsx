@@ -1,9 +1,9 @@
-import React, { useMemo, useState } from "react";
+import React, { useCallback, useMemo, useState } from "react";
 import CallButton from "./CallButton";
-import HeroImage from "../assets/hero.jpg";
 import { Box, Typography } from "@mui/material";
 import PrimaryBtn from "./PrimaryBtn";
 import { useNavigate } from "react-router-dom";
+import HeroImage from "../assets/hero.jpg";
 
 const isColorDark = (color) => {
   // Convert hex color to RGB
@@ -28,85 +28,79 @@ const isColorDark = (color) => {
   const brightness = (r * 299 + g * 587 + b * 114) / 1000;
   return brightness < 128;
 };
+const useStyles = (isHovered, isDark) => ({
+  cardStyle: {
+    width: 268,
+    height: 392,
+    minWidth: 268,
+    borderRadius: "32px",
+    backgroundColor: isHovered ? "var(--base-1)" : "transparent",
+    transition: "all ease 0.3s",
+    cursor: "pointer",
+    position: "relative",
+    overflow: "hidden",
+    display: "flex",
+    flexDirection: "column",
+  },
 
-const ProductCard = ({ name, mop, tags, prominentColor }) => {
+  imgContainerStyle: {
+    width: "172px",
+    height: "220px",
+    position: "absolute",
+    top: isHovered ? "65%" : "50%",
+    left: "50%",
+    transform: "translate(-50%, -50%)",
+    transition: "top 0.3s ease",
+  },
+
+  imgStyle: {
+    width: "100%",
+    height: "100%",
+    objectFit: "cover",
+    transform: isHovered ? "scale(1.5)" : "scale(1)",
+    transition: "transform ease 0.3s",
+  },
+
+  callButtonStyle: {
+    position: "absolute",
+    top: isHovered ? "100%" : "80%",
+    left: isHovered ? "50%" : "100%",
+    transform: "translate(-50%, -50%)",
+    transition: "top 0.3s ease, left 0.3s ease",
+  },
+
+  textContainerStyle: {
+    width: "100%",
+    position: isHovered ? "absolute" : "static",
+    color: isHovered ? (isDark ? "white" : "black") : "black",
+    top: isHovered ? "5%" : "auto",
+    transition: "top 0.3s ease",
+  },
+});
+
+const ProductCard = ({ name, mop, id, prominentColor, image }) => {
   const [isHovered, setIsHovered] = useState(false);
   const navigate = useNavigate();
-  const handleMouseEnter = () => setIsHovered(true);
-  const handleMouseLeave = () => setIsHovered(false);
+  const handleMouseEnter = useCallback(() => setIsHovered(true), []);
+  const handleMouseLeave = useCallback(() => setIsHovered(false), []);
+  const handleClick = useCallback(
+    () => navigate(`/categories/${id}`),
+    [navigate, id]
+  );
 
+  const isDark = useMemo(() => isColorDark(prominentColor), [prominentColor]);
+  const styles = useMemo(
+    () => useStyles(isHovered, isDark),
+    [isHovered, isDark]
+  );
   const borderRadius = "32px";
-  const cardStyle = useMemo(
-    () => ({
-      width: 268,
-      height: 392,
-      borderRadius: "32px",
-      backgroundColor: isHovered ? "var(--base-1)" : "transparent",
-      transition: "all ease 0.3s",
-      cursor: "pointer",
-      position: "relative",
-      overflow: "hidden",
-      display: "flex",
-      flexDirection: "column",
-    }),
-    [isHovered]
-  );
-
-  const imgContainerStyle = useMemo(
-    () => ({
-      width: "172px",
-      height: "220px",
-      position: "absolute",
-      top: isHovered ? "65%" : "50%",
-      left: "50%",
-      transform: "translate(-50%, -50%)",
-      transition: "top 0.3s ease",
-    }),
-    [isHovered]
-  );
-
-  const imgStyle = useMemo(
-    () => ({
-      width: "100%",
-      height: "100%",
-      objectFit: "cover",
-      transform: isHovered ? "scale(1.5)" : "scale(1)",
-      transition: "transform ease 0.3s",
-    }),
-    [isHovered]
-  );
-
-  const callButtonStyle = useMemo(
-    () => ({
-      position: "absolute",
-      top: isHovered ? "100%" : "80%",
-      left: isHovered ? "50%" : "100%",
-      transform: "translate(-50%, -50%)",
-      transition: "top 0.3s ease, left 0.3s ease",
-    }),
-    [isHovered]
-  );
-
-  const textContainerStyle = useMemo(
-    () => ({
-      width: "100%",
-      position: isHovered ? "absolute" : "static",
-      color: isHovered
-        ? isColorDark(prominentColor)
-          ? "white"
-          : "black"
-        : "black",
-      top: isHovered ? "5%" : "auto",
-      transition: "top 0.3s ease",
-    }),
-    [isHovered]
-  );
 
   return (
     <div
-      style={cardStyle}
+      style={styles.cardStyle}
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
+      onClick={handleClick}
     >
       <div
         style={{
@@ -120,7 +114,7 @@ const ProductCard = ({ name, mop, tags, prominentColor }) => {
           marginBottom: ".5rem",
         }}
       >
-        <div style={imgContainerStyle}>
+        <div style={styles.imgContainerStyle}>
           <div
             style={{
               width: "100%",
@@ -137,18 +131,23 @@ const ProductCard = ({ name, mop, tags, prominentColor }) => {
                 transition: "border-radius 0.3s ease",
               }}
             >
-              <img src={HeroImage} alt="product image" style={imgStyle} />
+              <img
+                src={image}
+                alt="product image"
+                style={styles.imgStyle}
+                loading="lazy"
+              />
             </div>
             <CallButton
               variant={isHovered ? "normal" : "round"}
               title={isHovered ? "Place Order" : ""}
-              style={callButtonStyle}
+              style={styles.callButtonStyle}
             />
           </div>
         </div>
       </div>
 
-      <div style={textContainerStyle}>
+      <div style={styles.textContainerStyle}>
         <Typography align="center" variant="h5">
           {name}
         </Typography>
@@ -166,7 +165,7 @@ const ProductCard = ({ name, mop, tags, prominentColor }) => {
         <PrimaryBtn
           title={"View Product"}
           size={"medium"}
-          callBack={()=>navigate("/categories/45678")}
+          callBack={() => navigate(`/categories/${id}`)}
         />
       </div>
     </div>
@@ -177,8 +176,9 @@ const ProductCard = ({ name, mop, tags, prominentColor }) => {
 ProductCard.defaultProps = {
   name: "Product",
   mop: 69,
-  tags: [],
+  id: "123",
   prominentColor: "#00120b",
+  image: HeroImage,
 };
 
-export default ProductCard;
+export default React.memo(ProductCard);
