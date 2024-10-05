@@ -6,6 +6,7 @@ import { lazy, Suspense } from "react";
 import "./App.css";
 import Layout from "./components/Layout";
 import Categories from "./components/Categories";
+import MyModal, { ModalProvider } from "./components/MyModal";
 
 // Lazy Loading Components
 const Home = lazy(() => import("./components/Home"));
@@ -68,7 +69,12 @@ const routes = createBrowserRouter([
 ]);
 
 function App() {
-  return <RouterProvider router={routes} />;
+  return (
+    <ModalProvider>
+      <RouterProvider router={routes} />
+      <MyModal />
+    </ModalProvider>
+  );
 }
 
 export default App;

@@ -3,10 +3,13 @@ import PropTypes from "prop-types";
 import Button from "@mui/material/Button";
 import IconButton from "@mui/material/IconButton";
 import PhoneIcon from "@mui/icons-material/Phone";
+import { useModal } from "./MyModal";
 
 const CallButton = ({ title, variant, style }) => {
-  const makeCall = () => {
-    console.log("Making call...");
+  const { openModal } = useModal();
+  const makeCall = (e) => {
+    e.stopPropagation(); // no event bubbling
+    openModal("query");
   };
 
   // Common styles for both button types
