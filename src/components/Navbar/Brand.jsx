@@ -3,7 +3,7 @@ import Typography from "@mui/material/Typography";
 import Logo from "../../assets/logo.png";
 import { useNavigate } from "react-router-dom";
 
-const Brand = () => {
+const Brand = ({ hideName }) => {
   const navigate = useNavigate();
   return (
     <div className="navbar-brand">
@@ -15,9 +15,11 @@ const Brand = () => {
           navigate("/");
         }}
       />
-      <Typography variant="h6" className="navbar-brand-name">
-        Kapoor Industry
-      </Typography>
+      {!hideName && (
+        <Typography variant="h6" className="navbar-brand-name">
+          Kapoor Industry
+        </Typography>
+      )}
     </div>
   );
 };

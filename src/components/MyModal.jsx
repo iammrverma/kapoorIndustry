@@ -30,8 +30,8 @@ const MyModal = () => {
   const title = variant === "query" ? "Have issues!" : "Place Order Now !";
   const content =
     variant === "query"
-      ? "Dial or click the above Number to Ask your Query to our executive"
-      : "Dial or click the above number to Book your order with our executive";
+    ? "Dial or click the Number above to Ask your Query to our executive"
+    : "Dial or click the number above to Book your order with our executive";
 
   return (
     <Modal open={!!variant} onClose={closeModal}>
