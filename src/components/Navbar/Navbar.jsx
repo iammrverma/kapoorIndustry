@@ -17,7 +17,7 @@ const Navbar = () => {
 
   return (
     <AppBar
-      position="absolute"
+      position="fixed"
       top={0}
       className="morph"
     >
