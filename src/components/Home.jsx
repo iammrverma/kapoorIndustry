@@ -1,5 +1,5 @@
 import React from "react";
-import ProductSection from "./ProductSection";
+import ProductSection from "./Product/ProductSection";
 import Hero from "./Hero";
 import WhyUs from "./WhyUs";
 import Faq from "./Faq";

@@ -1,7 +1,7 @@
 import React from "react";
 import ProductList from "./ProductList";
 import { Typography } from "@mui/material";
-import PrimaryBtn from "./PrimaryBtn";
+import PrimaryBtn from "../PrimaryBtn";
 import { useNavigate } from "react-router-dom";
 
 const ProductSection = () => {

@@ -10,7 +10,7 @@ import MyModal, { ModalProvider } from "./components/MyModal";
 
 // Lazy Loading Components
 const Home = lazy(() => import("./components/Home"));
-const Product = lazy(() => import("./components/Product"));
+const Product = lazy(() => import("./components/Product/Product"));
 const AllProducts = lazy(() => import("./components/Categories"));
 const One = lazy(() => import("./components/One"));
 const Two = lazy(() => import("./components/Two"));

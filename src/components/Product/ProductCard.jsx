@@ -1,9 +1,9 @@
 import React, { useCallback, useMemo, useState } from "react";
-import CallButton from "./CallButton";
+import CallButton from "../CallButton";
 import { Box, Typography } from "@mui/material";
-import PrimaryBtn from "./PrimaryBtn";
+import PrimaryBtn from "../PrimaryBtn";
 import { useNavigate } from "react-router-dom";
-import HeroImage from "../assets/hero.jpg";
+import HeroImage from "../../assets/hero.jpg";
 
 const isColorDark = (color) => {
   // Convert hex color to RGB
