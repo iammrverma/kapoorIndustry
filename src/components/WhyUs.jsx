@@ -1,9 +1,10 @@
+import { useInView } from "react-intersection-observer";
+
 import AccessTimeIcon from "@mui/icons-material/AccessTime";
 import DoneIcon from "@mui/icons-material/Done";
 import CurrencyRupeeIcon from "@mui/icons-material/CurrencyRupee";
 import SettingsSuggestIcon from "@mui/icons-material/SettingsSuggest";
 import { Box, Grid2, Typography, useMediaQuery } from "@mui/material";
-import { useInView } from "react-intersection-observer";
 
 const Card = ({ reason, Logo, color, isLargeScreen, delay }) => {
   const size = isLargeScreen ? 150 : 100;

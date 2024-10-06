@@ -1,6 +1,7 @@
 import React from "react";
-import ProductCard from "./ProductCard";
 import { useMediaQuery } from "@mui/material";
+
+import ProductCard from "./ProductCard";
 
 const ProductList = ({ products }) => {
   const isMobile = useMediaQuery("(max-width: 768px)");

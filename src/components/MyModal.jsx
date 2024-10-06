@@ -1,10 +1,11 @@
-import { Modal, Typography } from "@mui/material";
+import React, { createContext, useContext, useState } from "react";
 
 import ModalClose from "@mui/joy/ModalClose";
 import ModalDialog from "@mui/joy/ModalDialog";
 import DialogTitle from "@mui/joy/DialogTitle";
 import DialogContent from "@mui/joy/DialogContent";
-import React, { createContext, useContext, useState } from "react";
+
+import { Modal, Typography } from "@mui/material";
 
 const ModalContext = createContext();
 const MOB_NUMBER = 9873087374;

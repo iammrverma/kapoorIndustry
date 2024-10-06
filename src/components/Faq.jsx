@@ -1,15 +1,17 @@
+import { Link } from "react-router-dom";
+import { useState } from "react";
+
 import Accordion from "@mui/material/Accordion";
 import AccordionDetails from "@mui/material/AccordionDetails";
 import AccordionSummary from "@mui/material/AccordionSummary";
 import Typography from "@mui/material/Typography";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
-import Brand from "./Navbar/Brand";
-import { Link } from "react-router-dom";
 import PhoneIcon from "@mui/icons-material/Phone";
-import { useState } from "react";
 import { useMediaQuery } from "@mui/material";
-import { useModal } from "./MyModal";
 import { useInView } from "react-intersection-observer";
+
+import Brand from "./Navbar/Brand";
+import { useModal } from "./MyModal";
 
 const faq = [
   {

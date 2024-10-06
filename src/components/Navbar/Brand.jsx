@@ -1,7 +1,9 @@
 import React from "react";
 import Typography from "@mui/material/Typography";
-import Logo from "../../assets/logo.png";
+
 import { useNavigate } from "react-router-dom";
+
+import Logo from "../../assets/logo.png";
 
 const Brand = ({ hideName }) => {
   const navigate = useNavigate();

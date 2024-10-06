@@ -1,9 +1,11 @@
+import HeroImage from "../assets/hero.jpg";
+
 import { useNavigate } from "react-router-dom";
-import PrimaryBtn from "./PrimaryBtn";
 import { Grid2, Typography, useMediaQuery } from "@mui/material";
 import { Box, Container } from "@mui/system";
 
-import HeroImage from "../assets/hero.jpg";
+import PrimaryBtn from "./PrimaryBtn";
+
 const Hero = () => {
   const navigate = useNavigate();
   const isLargeScreen = useMediaQuery("(min-width:768px)");

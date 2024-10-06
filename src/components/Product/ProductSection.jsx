@@ -1,8 +1,10 @@
 import React from "react";
-import ProductList from "./ProductList";
-import { Typography } from "@mui/material";
-import PrimaryBtn from "../PrimaryBtn";
 import { useNavigate } from "react-router-dom";
+
+import { Typography } from "@mui/material";
+
+import ProductList from "./ProductList";
+import PrimaryBtn from "../PrimaryBtn";
 
 const ProductSection = () => {
   const navigate = useNavigate();

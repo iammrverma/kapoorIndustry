@@ -1,13 +1,16 @@
+import "../../Navbar.css";
+
 import React, { useState } from "react";
+
 import AppBar from "@mui/material/AppBar";
 import Toolbar from "@mui/material/Toolbar";
 import IconButton from "@mui/material/IconButton";
 import MenuIcon from "@mui/icons-material/Menu";
 import useMediaQuery from "@mui/material/useMediaQuery";
+
 import Brand from "./Brand";
 import NavLinks from "./NavLinks";
 import MobileDrawer from "./MobileDrawer";
-import "../../Navbar.css";
 
 const Navbar = () => {
   const [drawerOpen, setDrawerOpen] = useState(false);
