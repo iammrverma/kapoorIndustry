@@ -64,7 +64,7 @@ const Faq = () => {
         }}
       >
         <Brand hideName={true} />
-        <Typography variant="h3">
+        <Typography variant={isLargeScreen ? "h4" : "h5"}>
           {isLargeScreen ? "Frequently Asked Questions" : "FAQs"}
         </Typography>
       </div>
