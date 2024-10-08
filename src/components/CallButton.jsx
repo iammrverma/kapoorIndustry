@@ -11,7 +11,7 @@ const CallButton = ({ title, variant, style }) => {
   const { openModal } = useModal();
   const makeCall = (e) => {
     e.stopPropagation(); // no event bubbling
-    openModal("query");
+    openModal("normal");
   };
 
   // Common styles for both button types

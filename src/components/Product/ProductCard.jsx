@@ -59,7 +59,7 @@ const useStyles = (isHovered, isDark) => ({
     width: "100%",
     height: "100%",
     objectFit: "cover",
-    transform: isHovered ? "scale(1.5)" : "scale(1)",
+    transform: isHovered ? "scale(1)" : "scale(1.5)",
     transition: "transform ease 0.3s",
   },
 
@@ -131,6 +131,7 @@ const ProductCard = ({ name, mop, id, prominentColor, image }) => {
                 overflow: "hidden",
                 borderRadius: isHovered ? "24px 24px 0 0" : "24px",
                 transition: "border-radius 0.3s ease",
+                boxShadow: "grey 0 0 8px 0"
               }}
             >
               <img

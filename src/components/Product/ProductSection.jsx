@@ -5,7 +5,7 @@ import { Typography } from "@mui/material";
 
 import ProductList from "./ProductList";
 import PrimaryBtn from "../PrimaryBtn";
-
+import { products } from "../../data/data"
 const ProductSection = () => {
   const navigate = useNavigate();
   return (
@@ -14,7 +14,7 @@ const ProductSection = () => {
         Popular Products
       </Typography>
 
-      <ProductList products={[{}, {}, {}, {}, {}]} />
+      <ProductList products={products} />
 
       <div style={{ display: "grid", placeItems: "center" }}>
         <PrimaryBtn
